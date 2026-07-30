@@ -24,6 +24,11 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   background: var(--void);
@@ -281,13 +286,16 @@ p { margin: 0; }
 .coverage { background: var(--void); }
 .section__inner--split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 48px;
   align-items: center;
 }
+.coverage__text,
+.coverage__marquee { min-width: 0; }
 .coverage__desc { color: var(--mist); margin-top: 18px; font-size: 1.02rem; max-width: 480px; }
 
 .marquee {
+  width: 100%;
   overflow: hidden;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
